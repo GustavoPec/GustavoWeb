@@ -63,7 +63,9 @@ const Home = () => {
                 <ul>
                   <li
                     onClick={() => {
-                      window.open("https://wa.me/48999565527");
+                      window.open(
+                        "https://wa.me/48999565527?text=Ol%C3%A1,%Preciso%20de%20um%20or%C3%A7amento"
+                      );
                     }}
                   >
                     <i className="ph-light ph-whatsapp-logo"></i>
@@ -154,9 +156,9 @@ const Home = () => {
             <h2>Projetos</h2>
             <Styles.Text color="#111b21" text-align="left" fontSize="20px">
               <span>
-                Geralmente programados em <strong>Html/Css e React. </strong>
-                Ao Clicar em <strong>"ver mais"</strong> você será direcionado
-                para uma aba do meu Behance, para acessar os
+                Programados em <strong>React. </strong>
+                Ao Clicar em <strong>"ver mais"</strong> ou em cima do projeto
+                você será direcionado para o projeto e poderá todos os
                 <strong> detalhes </strong>
                 de cada projeto.
               </span>
@@ -254,7 +256,7 @@ const Home = () => {
                     <i
                       className="ph-light ph-whatsapp-logo"
                       onClick={() => {
-                        window.open("https://wa.me/48999565527");
+                        window.open("https://wa.me/48999565527?text=Ol%C3%A1,%Preciso%20de%20um%20or%C3%A7amento");
                       }}
                     ></i>
                     <i className="ph-light ph-instagram-logo"></i>

@@ -95,10 +95,11 @@ export const ProfileInfos = styled.div`
     width: 13ch;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2s steps(19), blinking 0.5s infinite step-end alternate;
+    animation: typing 2s steps(14), blinking 0.5s infinite step-end alternate;
 
     @media (max-width: 767px) {
       font-size: 40px;
+      width: 9.3em;
     }
   }
 
@@ -118,6 +119,8 @@ export const ProfileInfos = styled.div`
     display: flex;
     width: 380px;
     gap: 25px;
+    align-items: center;
+    text-align: center;
 
     .Title {
       font-size: 28px;
@@ -336,15 +339,13 @@ export const Footer = styled.div`
 `;
 
 export const FooterSpace = styled.div`
-  width: 1300px;
+  width: 1000px;
   height: 300px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
 
   @media (max-width: 767px) {
     display: flex;
@@ -375,14 +376,18 @@ export const FooterTitle = styled.div`
 export const FooterLinks = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
+
+  gap: 40px;
 
   .Links {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 50%;
+    align-items: start;
+    gap: 20px;
+    width: auto;
 
     @media (max-width: 767px) {
       display: flex;
@@ -405,7 +410,8 @@ export const FooterLinks = styled.div`
 export const FooterInfos = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
 
   @media (max-width: 767px) {
