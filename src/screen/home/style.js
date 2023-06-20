@@ -350,7 +350,6 @@ export const FooterSpace = styled.div`
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
     width: 100%;
   }
 `;
@@ -402,6 +401,7 @@ export const FooterLinks = styled.div`
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: 10px;
     width: 100%;
   }
@@ -418,6 +418,7 @@ export const FooterInfos = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: start;
     height: auto;
   }
 

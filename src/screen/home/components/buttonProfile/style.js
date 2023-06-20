@@ -25,7 +25,7 @@ export const Button = styled.div`
   }
 
   @media (max-width: 767px) {
-    width: 9rem;
-    font-size: 13px;
+    width: 10rem;
+    font-size: 14px;
   }
 `;
