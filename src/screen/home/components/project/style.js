@@ -6,13 +6,19 @@ export const Main = styled.div`
   transition: 0.2s;
 
   @media (max-width: 767px) {
-    width: 400px;
+    width: 390px;
     height: 200px;
   }
 
   &:hover {
     z-index: 1;
     scale: 1.1;
+
+    @media (max-width: 767px) {
+      &:hover {
+        scale: 1;
+      }
+    }
   }
 
   .BgPurple {
@@ -26,7 +32,7 @@ export const Main = styled.div`
     transition: 0.2s;
 
     @media (max-width: 767px) {
-      width: 400px;
+      width: 390px;
       height: 200px;
     }
   }
@@ -39,10 +45,16 @@ export const Main = styled.div`
   .Project {
     display: none;
     position: absolute;
-    top: 90px;
-    right: 145px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: 0.2s;
     cursor: pointer;
+
+    @media (max-width: 767px) {
+      color: white;
+      display: block;
+    }
   }
 
   img {

@@ -8,14 +8,6 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'amidonegrotesk';
-  src: font-url('../assets/amidonegrotesk.ttf') format('truetype');
-  src: font-url('../assets/amidonegrotesk.otf') format('opentype');
-  /* Outros formatos de fonte, se necessário */
-}
-
-
     body{
             margin: 0;
             padding: 0;
@@ -40,8 +32,7 @@ export const GlobalStyle = createGlobalStyle`
         }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "amidonegrotesk";
-  font-weight: normal;
+  font-family: 'Expletus Sans', sans-serif;
 }
 
 button {

@@ -92,7 +92,7 @@ export const ProfileInfos = styled.div`
   h2 {
     font-size: 60px;
     border-right: 4px solid;
-    width: 16ch;
+    width: 13ch;
     white-space: nowrap;
     overflow: hidden;
     animation: typing 2s steps(19), blinking 0.5s infinite step-end alternate;
@@ -311,6 +311,10 @@ export const ProjectCards = styled.div`
     flex-wrap: wrap;
     gap: 10px;
     width: 1252px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   }
 `;
 

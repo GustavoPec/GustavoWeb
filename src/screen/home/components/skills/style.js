@@ -24,6 +24,12 @@ export const Main = styled.div`
   &:hover {
     scale: 1.1;
     z-index: 1;
+
+    @media (max-width: 767px) {
+      &:hover {
+        scale: 1;
+      }
+    }
   }
 
   img {
