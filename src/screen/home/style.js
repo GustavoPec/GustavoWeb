@@ -117,7 +117,7 @@ export const ProfileInfos = styled.div`
 
   @media (max-width: 767px) {
     display: flex;
-    width: 100%;
+    width: 385px;
     gap: 25px;
     align-items: center;
     text-align: center;
