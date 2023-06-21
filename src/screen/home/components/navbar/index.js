@@ -42,11 +42,11 @@ export const Navbar = () => {
               Projetos
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="infos" spy={true} smooth={true} offset={50} duration={50}>
               Infos
             </Link>
-          </li>
+          </li> */}
         </ul>
       </Styles.List>
       <ButtonProfile title="Faça um orçamento" />
