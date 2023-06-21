@@ -117,7 +117,7 @@ export const ProfileInfos = styled.div`
 
   @media (max-width: 767px) {
     display: flex;
-    width: 380px;
+    width: 100%;
     gap: 25px;
     align-items: center;
     text-align: center;
@@ -146,7 +146,7 @@ export const ProfileIcons = styled.div`
     padding: 0;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: auto;
     gap: 10px;
 
     li {
@@ -154,13 +154,17 @@ export const ProfileIcons = styled.div`
       align-items: center;
       flex-direction: row;
       cursor: pointer;
-      width: 100%;
+      width: auto;
       gap: 0.5rem;
       color: #731aff;
       transition: 0.2s;
 
       &:hover {
         color: white;
+
+        @media (max-width: 767px) {
+          color: #731aff;
+        }
       }
 
       i {

@@ -8,7 +8,6 @@ import { ServiceBoard } from "./components/serviceBoard";
 import { Link } from "react-scroll";
 import { Project } from "./components/project";
 import Faq from "../../assets/Faq.png";
-import Controle from "../../assets/Controle.png";
 import Blue from "../../assets/Blue.png";
 import { Skills } from "./components/skills";
 import HTML from "../../assets/HTML.svg";
@@ -64,7 +63,7 @@ const Home = () => {
                   <li
                     onClick={() => {
                       window.open(
-                        "https://wa.me/48999565527?text=Ol%C3%A1,%Preciso%20de%20um%20or%C3%A7amento"
+                        "https://wa.me/48999565527?text=Ol%C3%A1,Preciso%20de%20um%20or%C3%A7amento"
                       );
                     }}
                   >
