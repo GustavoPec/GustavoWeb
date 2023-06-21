@@ -382,8 +382,11 @@ export const FooterLinks = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
   gap: 40px;
+
+  img {
+    cursor: pointer;
+  }
 
   .Links {
     display: flex;

@@ -206,27 +206,21 @@ const Home = () => {
                 </Styles.Text>
               </div>
 
-              <Link
-                to="home"
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={50}
-              >
-                <ButtonProfile title="Entrar em contato" />
-              </Link>
+              <ButtonProfile title="Entrar em contato" />
             </Styles.FooterTitle>
           </div>
 
           <Styles.FooterLinks>
-            <img
-              data-aos="fade-left"
-              data-aos-duration="500"
-              data-aos-delay="200"
-              src={Logo}
-              alt="logo"
-              width="190px"
-            />
+            <Link to="home" spy={true} smooth={true} offset={50} duration={50}>
+              <img
+                data-aos="fade-left"
+                data-aos-duration="500"
+                data-aos-delay="200"
+                src={Logo}
+                alt="logo"
+                width="190px"
+              />
+            </Link>
             <div className="Links">
               <div
                 data-aos="fade-left"
