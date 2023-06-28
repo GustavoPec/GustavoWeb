@@ -183,7 +183,7 @@ const Home = () => {
               img={Blue}
               name="Blue Consulting"
               onClick={() => {
-                window.open("https://blue-consulting-sigma.vercel.app/");
+                window.open("https://blueconsulting.tec.br/");
               }}
             />
           </div>
