@@ -18,6 +18,7 @@ import NEXT from "../../assets/NextJs.svg";
 import CHAKRA from "../../assets/Chakra.svg";
 import MUI from "../../assets/MUI.svg";
 import { ButtonProfile } from "./components/buttonProfile";
+import Typed from "react-typed";
 
 const Home = () => {
   return (
@@ -37,19 +38,28 @@ const Home = () => {
           />
           <Styles.ProfileInfos>
             <div data-aos="fade-left" data-aos-duration="500">
-              <Styles.Text className="Title" padding-left="1rem" color="white">
-                <h2>Olá, sou o Gustavo!</h2>
+              <Styles.Text className="Title" color="white">
+                <h2>Olá, sou o Gustavo</h2>
               </Styles.Text>
-              <Styles.Text
-                className="Desc"
-                padding-left="1rem"
-                color="white"
-                fontSize="21px"
-                text-align="left"
-              >
+              <Styles.Text className="Desc">
                 Sou um programador <strong>front-end web</strong>, responsável
                 por criar e redesenhar sites, landing pages e páginas
                 institucionais.
+                <br />
+                <br />
+                <Typed
+                  style={{
+                    fontSize: "21px",
+                  }}
+                  strings={[
+                    "Crie sua marca!",
+                    "Inove sua empresa!",
+                    "Desenvolva o futuro!",
+                  ]}
+                  typeSpeed={40}
+                  backSpeed={60}
+                  loop
+                />
               </Styles.Text>
             </div>
 
@@ -74,10 +84,6 @@ const Home = () => {
                     <i className="ph-light ph-instagram-logo"></i>
                     Me siga no Instagram
                   </li>
-                  {/* <li>
-                    <i className="ph-light ph-linkedin-logo"></i>
-                    Olhe minhas publicações
-                  </li> */}
                   <li>
                     <i className="ph-light ph-behance-logo"></i>
                     Acompanhe meus projetos

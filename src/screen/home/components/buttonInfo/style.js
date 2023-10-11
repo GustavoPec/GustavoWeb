@@ -26,9 +26,9 @@ export const Button = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2px 15px;
   border-radius: 5rem;
-  width: 130px;
-  height: 30px;
+  
   font-size: 20px;
   cursor: pointer;
   border: 3px solid #731aff;

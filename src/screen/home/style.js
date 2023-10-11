@@ -57,7 +57,7 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 950px;
+    height: 1100px;
   }
 `;
 
@@ -86,49 +86,38 @@ export const ProfileInfos = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  width: 530px;
+  width: 650px;
   height: 25rem;
 
-  h2 {
-    font-size: 60px;
-    border-right: 4px solid;
-    width: 13ch;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 2s steps(14), blinking 0.5s infinite step-end alternate;
-
-    @media (max-width: 767px) {
-      font-size: 40px;
-      width: 9.3em;
-    }
+  .Title {
+    margin-left: 5px;
   }
 
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-  }
-
-  @keyframes blinking {
-    50% {
-      border-color: transparent;
-    }
+  .Desc {
+    width: 400px;
+    color: white;
+    font-size: 21px;
+    margin-left: 5px;
   }
 
   @media (max-width: 767px) {
     display: flex;
-    width: 385px;
-    gap: 25px;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: auto;
     text-align: center;
 
     .Title {
-      font-size: 28px;
+      margin-bottom: 20px;
     }
 
     .Desc {
-      text-align: left;
-      font-size: 18px;
+      width: 100%;
+      color: white;
+      font-size: 21px;
+      margin-bottom: 20px;
     }
   }
 `;
@@ -142,7 +131,6 @@ export const ProfileIcons = styled.div`
 
   ul {
     list-style: none;
-    margin-left: 1rem;
     padding: 0;
     display: flex;
     flex-direction: column;
