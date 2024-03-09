@@ -1,72 +1,135 @@
+import React, { useRef, useEffect, useState } from "react";
+import { useTransform, useScroll, motion } from "framer-motion";
+import Lenis from "@studio-freight/lenis";
+
 import { Navbar } from "./components/navbar";
 import * as Styles from "./style";
-import person from "../../assets/gustavoPerson.png";
-import wave from "../../assets/wave.svg";
-import waveInvert from "../../assets/waveInvert.svg";
+import SERVICERS from "../../assets/REDESIGN.png";
+import SERVICESI from "../../assets/SITE INTERATIVO.png";
+import SERVICEPI from "../../assets/PAGINA INST.png";
+import SERVICELP from "../../assets/LANDING PAGE.png";
+import UPDARKPURPLE from "../../assets/ROXO ESCURO CIMA.png";
+import UPDARK from "../../assets/PRETO CIMA.png";
+import UPLIGHTGRAY from "../../assets/CINZA CLARO CIMA.png";
+import UPLIGHTPURPLE from "../../assets/ROXO CLARO CIMA.png";
+import DOWNDARK from "../../assets/PRETO BAIXO.png";
+import DOWNLIGHTPURPLE from "../../assets/ROXO CLARO BAIXO.png";
+import DOWNLIGHTGRAY from "../../assets/CINZA CLARO BAIXO.png";
+import DOWNDARKPURPLE from "../../assets/ROXO ESCURO BAIXO.png";
 import Logo from "../../assets/Logo.png";
-import { ServiceBoard } from "./components/serviceBoard";
-import { Link } from "react-scroll";
-import { Project } from "./components/project";
-import Faq from "../../assets/Faq.png";
-import Blue from "../../assets/Blue.png";
-import { Skills } from "./components/skills";
-import HTML from "../../assets/HTML.svg";
-import CSS from "../../assets/CSS.svg";
-import STYLED from "../../assets/Styled.svg";
-import REACT from "../../assets/React.svg";
-import NEXT from "../../assets/NextJs.svg";
-import CHAKRA from "../../assets/Chakra.svg";
-import MUI from "../../assets/MUI.svg";
-import { ButtonProfile } from "./components/buttonProfile";
 import Typed from "react-typed";
+import { Link } from "react-scroll";
+import { MobileFooter } from "./components/footerMobile";
 
 const Home = () => {
+  const [dimension, setDimension] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    const resize = () => {
+      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", resize);
+    requestAnimationFrame(raf);
+    resize();
+
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [window.innerHeight * -0.2, window.innerHeight * 1.7]
+  );
+  const y2 = useTransform(
+    scrollYProgress,
+    [1, 0],
+    [window.innerHeight * 1.8, window.innerHeight * -0.15]
+  );
+  const y3 = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, window.innerHeight * 1.2]
+  );
+  const y4 = useTransform(
+    scrollYProgress,
+    [1, 0],
+    [window.innerHeight * 1.4, 0]
+  );
+
+  const clonedDivs = [];
+
+  for (let i = 0; i < 1030; i++) {
+    clonedDivs.push(
+      React.cloneElement(<div key={i} className="square-colors" />)
+    );
+  }
+
   return (
     <Styles.Main>
-      <Styles.Profile id="home">
-        <Styles.Menu>
-          <Navbar />
-        </Styles.Menu>
+      <Styles.Menu id="home">
+        <Navbar />
+      </Styles.Menu>
+      <Styles.Profile>
+        <Styles.ProfileSquares>
+          <div className="container">{clonedDivs}</div>
+        </Styles.ProfileSquares>
         <Styles.ProfileSpace>
-          <img
-            className="Person"
-            src={person}
-            alt="Person"
-            width="400px"
-            data-aos="fade-right"
-            data-aos-duration="500"
-          />
           <Styles.ProfileInfos>
-            <div data-aos="fade-left" data-aos-duration="500">
-              <Styles.Text className="Title" color="white">
-                <h2>Olá, sou o Gustavo</h2>
-              </Styles.Text>
+            <div className="Profile-space">
+              <h2>Olá, sou o Gustavo</h2>
               <Styles.Text className="Desc">
-                Sou um programador <strong>front-end web</strong>, responsável
-                por criar e redesenhar sites, landing pages e páginas
-                institucionais.
+                <p>
+                  Sou um programador <strong>front-end web</strong>, responsável
+                  por criar <br />e redesenhar{" "}
+                  <span>
+                    sites, landing pages, páginas <br />
+                    institucionais e sites interativos.
+                  </span>
+                </p>
+
                 <br />
                 <br />
+              </Styles.Text>
+              <div className="typed">
                 <Typed
                   style={{
                     fontSize: "21px",
+                    color: "#f8f8ff",
                   }}
                   strings={[
                     "Crie sua marca!",
                     "Inove sua empresa!",
-                    "Desenvolva o futuro!",
+                    "Desenvolva projetos!",
                   ]}
                   typeSpeed={40}
                   backSpeed={60}
                   loop
                 />
-              </Styles.Text>
+              </div>
             </div>
 
             <div
               data-aos="fade-up"
-              data-aos-duration="500"
-              data-aos-delay="400"
+              data-aos-duration="700"
+              data-aos-delay="200"
+              data-aos-easing="ease"
             >
               <Styles.ProfileIcons>
                 <ul>
@@ -78,15 +141,15 @@ const Home = () => {
                     }}
                   >
                     <i className="ph-light ph-whatsapp-logo"></i>
-                    Faça um orçamento
+                    Realizar orçamento
                   </li>
-                  <li>
+                  <li
+                    onClick={() => {
+                      window.open("https://www.instagram.com/gustavo.front/");
+                    }}
+                  >
                     <i className="ph-light ph-instagram-logo"></i>
-                    Me siga no Instagram
-                  </li>
-                  <li>
-                    <i className="ph-light ph-behance-logo"></i>
-                    Acompanhe meus projetos
+                    Siga-me
                   </li>
                 </ul>
               </Styles.ProfileIcons>
@@ -94,197 +157,277 @@ const Home = () => {
           </Styles.ProfileInfos>
         </Styles.ProfileSpace>
       </Styles.Profile>
-      <Styles.Skills id="skills">
-        <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="300">
-          <h2>Habilidades</h2>
-        </div>
-        <div
-          className="wrap-skills"
-          data-aos="fade-up"
-          data-aos-duration="300"
-          data-aos-delay="600"
-        >
-          <Skills Skills="Html 5" img={HTML} />
-          <Skills Skills="Css 3" img={CSS} />
-          <Skills Skills="React" img={REACT} />
-          <Skills Skills="NextJs" img={NEXT} />
-          <Skills Skills="Chakra" img={CHAKRA} />
-          <Skills Skills="Mui" img={MUI} />
-          <Skills Skills="Css-in-Js" img={STYLED} />
-        </div>
-      </Styles.Skills>
-      <img className="Wave" src={wave} alt="wave" id="services" />
-      <Styles.Services>
-        <Styles.ServicesTitle>
-          <h2>Serviços</h2>
-        </Styles.ServicesTitle>
-        <Styles.ServicesSpaces>
-          <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="200">
-            <ServiceBoard
-              title="Landing"
-              subtitle="{Pages}"
-              description1="Usada para "
-              description2="capturação de leads. "
-              description3="Seja em apresentações corporativas ou demonstrações de produto/serviço."
-            />
-          </div>
-          <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="300">
-            <ServiceBoard
-              title="Página"
-              subtitle="{Institucional}"
-              description1="Formato muito procurado para "
-              description2="apresentação
-            de portfólio ou
-            modelo de negócios."
-            />
-          </div>
-          <div data-aos="fade-up" data-aos-duration="300" data-aos-delay="400">
-            <ServiceBoard
-              title="Redesign"
-              subtitle="{de site}"
-              description1="Perfeito para quem precisa de uma  "
-              description2=" “cara nova” "
-              description3="para o seu site.
-            Junta-se o design inicial com novas ideias."
-            />
-          </div>
+      <Styles.Services id="services">
+        <Styles.ServicesSpaces ref={container}>
+          <motion.div className="motionServices" style={{ y: y }}>
+            <div className="ColumnServices">
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={DOWNDARKPURPLE} />
+              </motion.div>
+              <img src={SERVICELP} />
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={UPLIGHTPURPLE} />
+              </motion.div>
+            </div>
+          </motion.div>
+          <motion.div className="motionServices" style={{ y: y2 }}>
+            <div className="ColumnServices">
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={DOWNDARK} />
+              </motion.div>
+
+              <img src={SERVICEPI} />
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={UPDARKPURPLE} />
+              </motion.div>
+            </div>
+          </motion.div>
+          <motion.div className="motionServices" style={{ y: y3 }}>
+            <div className="ColumnServices">
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={DOWNLIGHTPURPLE} />
+              </motion.div>
+
+              <img src={SERVICERS} />
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={UPDARK} />
+              </motion.div>
+            </div>
+          </motion.div>
+          <motion.div className="motionServices" style={{ y: y4 }}>
+            <div className="ColumnServices">
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={DOWNLIGHTGRAY} />
+              </motion.div>
+
+              <img src={SERVICESI} />
+              <motion.div
+                whileInView={{ opacity: 0.6 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <img src={UPLIGHTGRAY} />
+              </motion.div>
+            </div>
+          </motion.div>
         </Styles.ServicesSpaces>
       </Styles.Services>
-      <img className="Wave" src={waveInvert} alt="wave" id="projects" />
-      <Styles.Projects>
-        <Styles.ProjectsSpace>
-          <div
-            className="description"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            <h2>Projetos</h2>
-            <Styles.Text color="#111b21" text-align="left" fontSize="20px">
-              <span>
-                Programados em <strong>React. </strong>
-                Clique em <strong>"ver mais"</strong> ou em cima do projeto e
-                você será direcionado para a página do projeto e poderá ver
-                todos os
-                <strong> detalhes </strong>
-                de cada projeto.
-              </span>
-            </Styles.Text>
-          </div>
-        </Styles.ProjectsSpace>
-        <Styles.ProjectCards>
-          <div
-            className="wrap-cards"
-            data-aos="fade-up"
-            data-aos-duration="300"
-            data-aos-delay="400"
-          >
-            <Project
-              img={Faq}
-              name="Softilux FAQ"
-              onClick={() => {
-                window.open("https://faq.psfx.com.br/");
-              }}
-            />
-            <Project
-              img={Blue}
-              name="Blue Consulting"
-              onClick={() => {
-                window.open("https://blueconsulting.tec.br/");
-              }}
-            />
-          </div>
-        </Styles.ProjectCards>
-      </Styles.Projects>
-      <Styles.Footer id="infos">
-        <Styles.FooterSpace>
-          <div data-aos="fade-up" data-aos-duration="500">
-            <Styles.FooterTitle>
-              <div>
-                <Styles.Text
-                  className="Title"
-                  fontWeight="bold"
-                  color="#731aff"
+      <Styles.ServicesMobile>
+        <motion.div
+          className="motion-div"
+          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: -100, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 3,
+          }}
+        >
+          <img src={SERVICELP} />
+        </motion.div>
+        <motion.div
+          className="motion-div"
+          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: -100, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 3,
+          }}
+        >
+          <img src={SERVICEPI} />
+        </motion.div>
+        <motion.div
+          className="motion-div"
+          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: -100, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 5,
+          }}
+        >
+          <img src={SERVICERS} />
+        </motion.div>
+        <motion.div
+          className="motion-div"
+          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: -100, opacity: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 3,
+          }}
+        >
+          <img src={SERVICESI} />
+        </motion.div>
+      </Styles.ServicesMobile>
+
+      {/* <Styles.Projects id="projects"></Styles.Projects> */}
+      <Styles.Footer>
+        <Styles.FooterLimit>
+          <Styles.FooterSpace>
+            <div className="Footer-column">
+              <div className="Footer-column-contact-title">
+                <h1>Entre em contato!</h1>
+                <motion.div
+                  initial={{ x: -10 }}
+                  whileInView={{ x: 30 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                    duration: 2,
+                  }}
                 >
-                  <h1>Precisa de um orçamento?</h1>
-                </Styles.Text>
-                <Styles.Text fontSize="20px" color="white">
-                  Entre em contato comigo!
-                </Styles.Text>
+                  <i className="ph-bold ph-arrow-elbow-down-right"></i>
+                </motion.div>
               </div>
-
-              <ButtonProfile title="Entrar em contato" />
-            </Styles.FooterTitle>
-          </div>
-
-          <Styles.FooterLinks>
-            <Link to="home" spy={true} smooth={true} offset={50} duration={50}>
-              <img
-                data-aos="fade-left"
-                data-aos-duration="500"
-                data-aos-delay="200"
-                src={Logo}
-                alt="logo"
-                width="190px"
-              />
-            </Link>
-            <div className="Links">
-              <div
-                data-aos="fade-left"
-                data-aos-duration="500"
-                data-aos-delay="300"
-              >
-                <Styles.FooterInfos>
-                  <Styles.Text fontWeight="bold" color="#731aff">
-                    <span>Infos</span>
-                  </Styles.Text>
-                  <div>
-                    <Styles.Text color="white">Florianópolis</Styles.Text>
-                    <Styles.Text color="white">+55 48 99956-5527</Styles.Text>
-                  </div>
-                </Styles.FooterInfos>
-              </div>
-              <div
-                data-aos="fade-left"
-                data-aos-duration="500"
-                data-aos-delay="400"
-              >
-                <Styles.FooterInfos>
-                  <Styles.Text fontWeight="bold" color="#731aff">
-                    <span>Redes Sociais</span>
-                  </Styles.Text>
-                  <div className="icons">
-                    <i
-                      className="ph-light ph-whatsapp-logo"
-                      onClick={() => {
-                        window.open(
-                          "https://wa.me/48999565527?text=Ol%C3%A1, Preciso%20de%20um%20or%C3%A7amento"
-                        );
-                      }}
-                    ></i>
-                    <i className="ph-light ph-instagram-logo"></i>
-                    {/* <i className="ph-light ph-linkedin-logo"></i> */}
-                    <i className="ph-light ph-behance-logo"></i>
-                  </div>
-                </Styles.FooterInfos>
-              </div>
-              <div
-                data-aos="fade-left"
-                data-aos-duration="500"
-                data-aos-delay="500"
-              >
-                <Styles.FooterInfos>
-                  <Styles.Text fontWeight="bold" color="#731aff">
-                    <span>Solicete por email</span>
-                  </Styles.Text>
-                  <Styles.Text color="white">
-                    gustavoopecanha@gmail.com
-                  </Styles.Text>
-                </Styles.FooterInfos>
+              <div className="Footer-column-contact-link">
+                <span>Ou mande um email</span>
+                <span>gustavoopecanha@gmail.com</span>
               </div>
             </div>
-          </Styles.FooterLinks>
-        </Styles.FooterSpace>
+          </Styles.FooterSpace>
+          <Styles.FooterSpace>
+            <div className="Footer-column">
+              <div className="Footer-column-contact-list">
+                <span>Redes sociais</span>
+                <ul>
+                  <li
+                    onClick={() => {
+                      window.open(
+                        "https://wa.me/48999565527?text=Ol%C3%A1, Preciso%20de%20um%20or%C3%A7amento"
+                      );
+                    }}
+                  >
+                    <a>Whatsapp</a>
+                  </li>
+                  <li>
+                    <a>Instagram</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Styles.FooterSpace>
+          <Styles.FooterSpace>
+            <div className="Footer-column">
+              <div className="Footer-column-contact-list">
+                <span>Navegue pelo site</span>
+                <ul>
+                  <li>
+                    <Link
+                      to="home"
+                      spy={true}
+                      smooth={true}
+                      offset={0}
+                      duration={700}
+                    >
+                      Começo
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="services"
+                      spy={true}
+                      smooth={true}
+                      offset={0}
+                      duration={700}
+                    >
+                      Serviços
+                    </Link>
+                  </li>
+                  {/* <li>
+                  <Link
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={700}
+                  >
+                    Projetos
+                  </Link>
+                </li> */}
+                </ul>
+              </div>
+              <img src={Logo} alt="logo" />
+            </div>
+          </Styles.FooterSpace>
+        </Styles.FooterLimit>
       </Styles.Footer>
+      <MobileFooter />
     </Styles.Main>
   );
 };

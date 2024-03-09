@@ -12,14 +12,14 @@ export const ServiceBoard = (props) => {
         <Styles.Text
           fontSize="30px"
           fontWeight="bold"
-          color="white"
+          color="#f8f8ff"
           text-align="end"
         >
           {props.subtitle}
         </Styles.Text>
       </Styles.Title>
       <Styles.Board>
-        <Styles.Text text-align="center" color="white" fontSize="20px" width="200px">
+        <Styles.Text text-align="center" color="#171717" fontSize="20px" width="200px">
           {props.description1}
           <strong>{props.description2}</strong>
           {props.description3}

@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
+            background: #0b0b0c;
 
             &::-webkit-scrollbar{
               width: 8px;
@@ -32,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Expletus Sans', sans-serif;
+  /* font-family: 'Expletus Sans', sans-serif; */
 }
 
 button {
@@ -40,13 +41,13 @@ button {
 }
 
 
-html{
+/* html{
   @media (max-width: 36rem) {
   ul {
     grid-template-columns: 1fr;
   }
 }
-}
+} */
 
 
 `;
