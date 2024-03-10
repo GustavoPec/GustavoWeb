@@ -46,11 +46,11 @@ export const Navbar = () => {
             </li>
             <li>
               <Link
-                to="services"
-                spy={true}
-                smooth={true}
-                offset={0}
-                duration={700}
+                onClick={() => {
+                  window.open(
+                    "https://wa.me/48999565527?text=Ol%C3%A1, Preciso%20de%20um%20or%C3%A7amento"
+                  );
+                }}
               >
                 Faça um orçamento
               </Link>
