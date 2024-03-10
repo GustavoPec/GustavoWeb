@@ -31,6 +31,7 @@ export const Navbar = () => {
             data-aos-duration="700"
             data-aos-delay="700"
             data-aos-easing="ease"
+            className="Links"
           >
             <li>
               <Link
@@ -41,6 +42,17 @@ export const Navbar = () => {
                 duration={700}
               >
                 Serviços
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={700}
+              >
+                Faça um orçamento
               </Link>
             </li>
           </div>
@@ -64,14 +76,14 @@ export const Navbar = () => {
           </div> */}
         </ul>
       </Styles.List>
-      <div
+      {/* <div
         data-aos="fade-down"
         data-aos-duration="700"
         data-aos-delay="800"
         data-aos-easing="ease"
       >
         <ButtonProfile title="Faça um orçamento" />
-      </div>
+      </div> */}
     </Styles.Main>
   );
 };

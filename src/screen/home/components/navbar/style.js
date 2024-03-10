@@ -46,6 +46,12 @@ export const List = styled.div`
     display: none;
   }
 
+  .Links {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
   ul {
     cursor: pointer;
     display: flex;
