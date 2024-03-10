@@ -17,6 +17,7 @@ import DOWNLIGHTPURPLE from "../../assets/ROXO CLARO BAIXO.png";
 import DOWNLIGHTGRAY from "../../assets/CINZA CLARO BAIXO.png";
 import DOWNDARKPURPLE from "../../assets/ROXO ESCURO BAIXO.png";
 import Logo from "../../assets/Logo.png";
+import LogoBranca from "../../assets/LogoBranca.png";
 import Typed from "react-typed";
 import { Link } from "react-scroll";
 import { MobileFooter } from "./components/footerMobile";
@@ -96,7 +97,7 @@ const Home = () => {
               <h2>Olá, sou o Gustavo</h2>
               <Styles.Text className="Desc">
                 <p>
-                  Sou um programador <strong>front-end web</strong>, responsável
+                  Sou um desenvolvedor <strong>front-end web</strong>, responsável
                   por criar <br />e redesenhar{" "}
                   <span>
                     sites, landing pages, páginas <br />
@@ -422,7 +423,7 @@ const Home = () => {
                 </li> */}
                 </ul>
               </div>
-              <img src={Logo} alt="logo" />
+              <img src={LogoBranca} alt="logo" />
             </div>
           </Styles.FooterSpace>
         </Styles.FooterLimit>

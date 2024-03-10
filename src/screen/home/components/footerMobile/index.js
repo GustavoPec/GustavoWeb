@@ -1,5 +1,5 @@
 import * as Styles from "./style.js";
-import Logo from "../../../../assets/Logo.png";
+import LogoBranca from "../../../../assets/LogoBranca.png";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
@@ -78,7 +78,7 @@ export const MobileFooter = () => {
           </ul>
         </div>
       </div>
-      <img src={Logo} alt="logo" />
+      <img src={LogoBranca} alt="logo" />
     </Styles.Main>
   );
 };
