@@ -16,7 +16,6 @@ import DOWNDARK from "../../assets/PRETO BAIXO.png";
 import DOWNLIGHTPURPLE from "../../assets/ROXO CLARO BAIXO.png";
 import DOWNLIGHTGRAY from "../../assets/CINZA CLARO BAIXO.png";
 import DOWNDARKPURPLE from "../../assets/ROXO ESCURO BAIXO.png";
-import Logo from "../../assets/Logo.png";
 import LogoBranca from "../../assets/LogoBranca.png";
 import Typed from "react-typed";
 import { Link } from "react-scroll";
