@@ -19,17 +19,17 @@ export const GlobalStyle = createGlobalStyle`
             }
 
             &::-webkit-scrollbar-track{
-             background: #19013b;
+             background: transparent;
             }
 
             &::-webkit-scrollbar-thumb{
-              background: white;
-              border-radius: 1rem;
+              background: transparent;
+              border-radius: 0rem;
             }
         }
 
         body, input, textarea, button, span, strong{
-          font-family: "quicksand", sans-serif;
+          font-family: "inter", sans-serif;
         }
 
 h1, h2, h3, h4, h5, h6 {

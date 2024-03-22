@@ -96,8 +96,8 @@ const Home = () => {
               <h2>Olá, sou o Gustavo</h2>
               <Styles.Text className="Desc">
                 <p>
-                  Sou um desenvolvedor <strong>front-end web</strong>, responsável
-                  por criar <br />e redesenhar{" "}
+                  Sou um desenvolvedor <strong>front-end web</strong>,
+                  responsável por criar <br />e redesenhar{" "}
                   <span>
                     sites, landing pages, páginas <br />
                     institucionais e sites interativos.
@@ -114,9 +114,9 @@ const Home = () => {
                     color: "#f8f8ff",
                   }}
                   strings={[
-                    "Crie sua marca!",
-                    "Inove sua empresa!",
-                    "Desenvolva projetos!",
+                    "Transforme sua ideia em realidade!",
+                    "Melhore sua imagem!",
+                    "Preços competitivos e prazos flexíveis.",
                   ]}
                   typeSpeed={40}
                   backSpeed={60}
